@@ -15,7 +15,6 @@ public class Order {
 		private List<OrderItem> items = new ArrayList<>();
 		
 		private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		private static final SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy");
 		
 		public Order(Date moment, OrderStatus status, Client client) {
 			this.moment = moment;
@@ -74,16 +73,14 @@ public class Order {
 			
 			sb.append("Order moment: " + sdf.format(moment) + "\n");
 			sb.append("Order status: " + status + "\n");
-			sb.append("Client: " + client.getName() + "(" + sdf2.format(client.getBirthDate() ) + ")"
-			           + " - " + client.getEmail() + "\n");
+			sb.append(client);
 			sb.append("Order items: " + "\n");
 			for(OrderItem item : items)
 			{
-				sb.append(item.getProduct().getName() + ", $ ");
-				sb.append(item.getProduct().getPrice() + ", ");
-				sb.append("Quantity: " + item.getQuantity() + ", ");
-				sb.append("Subtotal: $ " + item.subTotal() + "\n");
+				sb.append(item + "\n");
 			}
+			
+			sb.append("Total price: $ " + String.format("%,.2f", total() ) );
 			
 			return sb.toString();
 			

@@ -27,7 +27,7 @@ public class Program {
 		System.out.print("Name: ");
 		String name = sc.nextLine();
 		System.out.print("Email: ");
-		String email = sc.nextLine();
+		String email = sc.next();
 		System.out.print("Birth date (DD/MM/YYYY): ");
 		Date birthDate = sdf1.parse(sc.next());
 		
@@ -61,7 +61,6 @@ public class Program {
 		}
 		
 		System.out.println(order);
-		System.out.printf("Total price: $ %,.2f%n", order.total());
 		
 		sc.close();
 	}

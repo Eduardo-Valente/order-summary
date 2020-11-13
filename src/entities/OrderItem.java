@@ -37,4 +37,17 @@ public class OrderItem {
 		{
 			return this.quantity * this.price;
 		}
+
+		@Override
+		public String toString() {
+			
+			StringBuilder sb = new StringBuilder();
+			
+			sb.append(product.getName() + ", $ ");
+			sb.append(String.format("%,.2f", product.getPrice() ) + ", ");
+			sb.append("Quantity: " + quantity + ", ");
+			sb.append("Subtotal: $ " + String.format("%,.2f", subTotal() ) );
+			
+			return sb.toString();
+		}
 }
